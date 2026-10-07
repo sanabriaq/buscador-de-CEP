@@ -1,7 +1,7 @@
-const form = document.getElementById("form-busca");
-const input = document.getElementById("cep");
-const botao = document.getElementById("btn-buscar");
-const resultado = document.getElementById("resultado");
+const form = document.getElementById("form-busca"); // Seleciona o formulário de busca
+const input = document.getElementById("cep"); // Seleciona o campo de entrada do CEP
+const botao = document.getElementById("btn-buscar"); // Seleciona o botão de busca
+const resultado = document.getElementById("resultado"); // Seleciona o elemento onde o resultado será exibido
 
 // máscara 00000-000 enquanto digita
 input.addEventListener("input", () => {
