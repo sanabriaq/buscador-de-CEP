@@ -4,7 +4,7 @@ const botao = document.getElementById("btn-buscar"); // Seleciona o botão de bu
 const resultado = document.getElementById("resultado"); // Seleciona o elemento onde o resultado será exibido
 
 // máscara 00000-000 enquanto digita
-input.addEventListener("input", () => {
+input.addEventListener("input", () => {//
   const digitos = input.value.replace(/\D/g, "").slice(0, 8);
   input.value = digitos.length > 5 ? `${digitos.slice(0, 5)}-${digitos.slice(5)}` : digitos;
   input.removeAttribute("aria-invalid");
@@ -38,9 +38,9 @@ form.addEventListener("submit", async (evento) => {
   mostrarMensagem("Buscando endereço…", "carregando");
 
   //API do ViaCEP para buscar o endereço com base no CEP
-  try {
-    const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const dados = await resposta.json();
+  try { // Faz a requisição para a API do ViaCEP
+    const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);// Faz a requisição para a API do ViaCEP
+    const dados = await resposta.json();// Converte a resposta em JSON
 
     if (dados.erro) {
       mostrarMensagem("CEP não encontrado.", "erro");
