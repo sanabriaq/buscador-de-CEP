@@ -4,15 +4,15 @@ const botao = document.getElementById("btn-buscar"); // Seleciona o botão de bu
 const resultado = document.getElementById("resultado"); // Seleciona o elemento onde o resultado será exibido
 
 // máscara 00000-000 enquanto digita
-input.addEventListener("input", () => {//
+input.addEventListener("input", () => {
   const digitos = input.value.replace(/\D/g, "").slice(0, 8);
   input.value = digitos.length > 5 ? `${digitos.slice(0, 5)}-${digitos.slice(5)}` : digitos;
   input.removeAttribute("aria-invalid");
 });
 
-function mostrarMensagem(texto, tipo) {
-  resultado.className = `mensagem mensagem--${tipo}`;
-  resultado.textContent = texto;
+function mostrarMensagem(texto, tipo) { // Função para exibir mensagens de erro ou carregamento
+  resultado.className = `mensagem mensagem--${tipo}`; // Adiciona a classe correspondente ao tipo de mensagem
+  resultado.textContent = texto; // Define o texto da mensagem
 }
 
 function linha(rotulo, valor) {
@@ -50,17 +50,17 @@ form.addEventListener("submit", async (evento) => {
     const lista = document.createElement("dl");
     lista.className = "endereco";
     lista.append(
-      ...linha("CEP", dados.cep),
-      ...linha("Rua", dados.logradouro),
-      ...linha("Bairro", dados.bairro),
-      ...linha("Cidade", dados.localidade),
-      ...linha("Estado", dados.estado ? `${dados.estado} (${dados.uf})` : dados.uf)
+      ...linha("CEP", dados.cep), // Adiciona o CEP à lista
+      ...linha("Rua", dados.logradouro), // Adiciona a rua à lista
+      ...linha("Bairro", dados.bairro), // Adiciona o bairro à lista
+      ...linha("Cidade", dados.localidade), // Adiciona a cidade à lista
+      ...linha("Estado", dados.estado ? `${dados.estado} (${dados.uf})` : dados.uf) // Adiciona o estado à lista
     );
-    resultado.className = "";
-    resultado.replaceChildren(lista);
-  } catch (erro) {
-    mostrarMensagem("Erro ao buscar o CEP. Verifique sua conexão.", "erro");
-  } finally {
-    botao.disabled = false;
+    resultado.className = ""; // Limpa a classe do resultado
+    resultado.replaceChildren(lista); // Substitui o conteúdo do resultado pelo endereço encontrado
+  } catch (erro) { // Caso ocorra algum erro na requisição, exibe uma mensagem de erro
+    mostrarMensagem("Erro ao buscar o CEP. Verifique sua conexão.", "erro"); // Exibe uma mensagem de erro
+  } finally { // Sempre executa, independentemente de sucesso ou erro
+    botao.disabled = false; // Habilita o botão novamente
   }
 });

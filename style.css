@@ -58,6 +58,7 @@ body {
     line-height: 1.5;
     color: var(--tinta);
     background-color: var(--papel);
+    
     /* textura sutil de papel quadriculado */
     background-image:
         linear-gradient(var(--papel-escuro) 1px, transparent 1px),
