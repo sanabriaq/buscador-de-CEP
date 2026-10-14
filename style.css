@@ -241,6 +241,7 @@ button:disabled {
 
 .mensagem--erro {
     color: var(--vermelho);
+    background-color: rgba(214, 64, 47, 0.05);
 }
 
 .mensagem--carregando {
