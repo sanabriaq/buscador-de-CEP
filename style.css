@@ -101,7 +101,7 @@ body {
     height: 8px;
     background: repeating-linear-gradient(
         -45deg,
-        var(--vermelho) 0 14px,
+        var(--vermelho) 1 14px,
         var(--cartao) 14px 22px,
         var(--azul) 22px 36px,
         var(--cartao) 36px 44px
