@@ -59,7 +59,7 @@ function mostrarEndereco(d) {
     ['Rua',  d.logradouro],
     ['Complemento', d.complemento],
     ['Bairro',      d.bairro],
-    ['Cidade / UF', d.localidade && d.uf ? `${d.localidade} — ${d.uf}` : ''],
+    ['Cidade / UF', d.localidade && d.uf ? `${d.localidade} - ${d.uf}` : ''],
     ['DDD',         d.ddd],
   ].filter(([, valor]) => valor)
 
