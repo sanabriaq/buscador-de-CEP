@@ -12,8 +12,8 @@
     --foco: rgba(47, 75, 216, 0.25);
 
     /* tipografia */
-    --fonte-texto: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
-    --fonte-mono: 'JetBrains Mono', 'Consolas', ui-monospace, monospace;
+    --fonte-texto: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    --fonte-mono: 'Fira Code', 'Consolas', ui-monospace, monospace;
 
     /* medidas */
     --raio: 14px;
@@ -58,7 +58,7 @@ body {
     line-height: 1.5;
     color: var(--tinta);
     background-color: var(--papel);
-    
+
     /* textura sutil de papel quadriculado */
     background-image:
         linear-gradient(var(--papel-escuro) 1px, transparent 1px),
@@ -99,13 +99,11 @@ body {
     position: absolute;
     inset: 0 0 auto;
     height: 8px;
-    background: repeating-linear-gradient(
-        -45deg,
-        var(--vermelho) 1 14px,
-        var(--cartao) 14px 22px,
-        var(--azul) 22px 36px,
-        var(--cartao) 36px 44px
-    );
+    background: repeating-linear-gradient(-45deg,
+            var(--vermelho) 1 14px,
+            var(--cartao) 14px 22px,
+            var(--azul) 22px 36px,
+            var(--cartao) 36px 44px);
 }
 
 .card__header {
@@ -286,7 +284,8 @@ button:disabled {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--tinta-suave);
-    align-self: center;
+    display: flex;
+    align-items: center;
 }
 
 .endereco dd {
@@ -310,6 +309,7 @@ button:disabled {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: none;
@@ -323,11 +323,17 @@ button:disabled {
 }
 
 @keyframes tremer {
-    25% { transform: translateX(-4px); }
-    75% { transform: translateX(4px); }
+    25% {
+        transform: translateX(-4px);
+    }
+
+    75% {
+        transform: translateX(4px);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
