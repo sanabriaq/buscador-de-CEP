@@ -1,6 +1,6 @@
-const form      = document.getElementById('form-busca')
-const inputCep  = document.getElementById('cep')
-const botao     = document.getElementById('btn-buscar')
+const form = document.getElementById('form-busca')
+const inputCep = document.getElementById('cep')
+const botao = document.getElementById('btn-buscar')
 const resultado = document.getElementById('resultado')
 
 inputCep.addEventListener('input', () => {
@@ -55,12 +55,12 @@ function mostrarErro(texto) {
 
 function mostrarEndereco(d) {
   const campos = [
-    ['CEP',         d.cep],
-    ['Rua',  d.logradouro],
+    ['CEP', d.cep],
+    ['Rua', d.logradouro],
     ['Complemento', d.complemento],
-    ['Bairro',      d.bairro],
+    ['Bairro', d.bairro],
     ['Cidade / UF', d.localidade && d.uf ? `${d.localidade} - ${d.uf}` : ''],
-    ['DDD',         d.ddd],
+    ['DDD', d.ddd],
   ].filter(([, valor]) => valor)
 
   const dl = document.createElement('dl')
